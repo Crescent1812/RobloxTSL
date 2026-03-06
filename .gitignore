@@ -13,6 +13,7 @@ src/wally.lock
 
 # Rust
 /*.Cargo.lock
+Cargo.lock
 target/
 
 # mkdocs.yml website
