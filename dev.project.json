@@ -1,0 +1,12 @@
+{
+  "name": "RobloxTSL",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+        "$className": "ReplicatedStorage",
+        "RobloxTSL": {
+            "$path": "src"
+        }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# Project place file
+/RobloxTSL.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+sourcemap.json
+
+# RobloxTSL
+wally.lock
+src/wally.lock
+
+# Rust
+/*.Cargo.lock
+target/
+
+# mkdocs.yml website
+site/
+
+# README stuff for mkdocs
+README.md
