@@ -5,6 +5,10 @@ import json
 import os
 import yaml
 
+# Import your logging helper
+from .cleanlogs import write_log, clean_old_logs
+
+
 def define_env(env):
     """
     This function is executed once when MkDocs starts.
@@ -12,15 +16,22 @@ def define_env(env):
     """
 
     # ---------------------------------------------------------
+    # Logging
+    # ---------------------------------------------------------
+    write_log("MkDocs build started.")
+    clean_old_logs()
+
+    # ---------------------------------------------------------
     # Global variables
     # ---------------------------------------------------------
-    env.variables["project_name"] = "My Project"
+    env.variables["project_name"] = "RobloxTSL"
     env.variables["build_year"] = datetime.datetime.now().year
+    env.variables["build_date"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    # Load version from a file if it exists
+    # Load version from version.txt if present
     version_file = "version.txt"
     if os.path.exists(version_file):
-        with open(version_file, "r") as f:
+        with open(version_file, "r", encoding="utf-8") as f:
             env.variables["project_version"] = f.read().strip()
     else:
         env.variables["project_version"] = "0.0.0"
@@ -42,14 +53,22 @@ def define_env(env):
     @env.macro
     def load_json(path):
         """Load a JSON file and return its contents."""
-        with open(path, "r") as f:
-            return json.load(f)
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            write_log(f"JSON load error: {e}")
+            return {}
 
     @env.macro
     def load_yaml(path):
         """Load a YAML file and return its contents."""
-        with open(path, "r") as f:
-            return yaml.safe_load(f)
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return yaml.safe_load(f)
+        except Exception as e:
+            write_log(f"YAML load error: {e}")
+            return {}
 
     @env.macro
     def table(headers, rows):
@@ -78,3 +97,8 @@ def define_env(env):
     @env.filter
     def uppercase(value):
         return value.upper()
+
+    # ---------------------------------------------------------
+    # Final log
+    # ---------------------------------------------------------
+    write_log("Macros loaded successfully.")

@@ -2,7 +2,7 @@
 # MkDocs – Full Configuration (Material + Plugins + Custom)
 # ------------------------------------------------------------
 
-site_name: "My Project Docs"
+site_name: "Roblox TypeScript Library (RobloxTSL)"
 site_description: "Comprehensive documentation for My Project"
 site_url: "https://Crescent1822.github.io/RobloxTSL/"
 
@@ -102,3 +102,6 @@ watch:
   - macros/
   - overrides/
   - assets/
+
+exclude:
+  - site-logs/*
