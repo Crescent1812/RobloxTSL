@@ -1,32 +1,33 @@
-stds.RobloxTSL = {
-	globals = {
-		"game"
-	},
-	read_globals = {
-		-- Roblox globals
-		"script",
+std = "lua51"
 
-		-- -- Extra functions
-		"typeof",
-		"tick", "warn",
-		table = {
-			fields = {
-				find = {},
-				create = {},
-				pack = {},
-			},
-		},
-	},
+globals = {
+    -- Roblox + Luau
+    "game", "workspace", "script", "shared", "plugin",
+    "Enum", "Instance",
+    "Color3", "Vector3", "Vector2", "UDim", "UDim2",
+    "CFrame", "BrickColor", "Rect",
+    "task", "utf8", "typeof", "print", "warn", "assert",
 }
 
-stds.RobloxTSL = {
-	read_globals = {
-		"it", "describe", "beforeAll", "beforeEach", "afterAll", "afterEach", "fail", "expect"
-	},
-}
+read_globals = {
+    -- RobloxTSL runtime
+    "TS",
+    "Promise",
+    "Symbol",
+    "Map", "Set",
+    "WeakMap", "WeakSet",
+    "Error",
 
-std = "lua51+roblox"
+    -- Your custom constructor-like globals
+    "new",
+    "function",
+}
 
 ignore = {
-	"212", -- Unused argument, which triggers on unused 'self' too
+    "212", -- unused argument
+}
+
+exclude_files = {
+    "out/**",
+    "node_modules/**",
 }

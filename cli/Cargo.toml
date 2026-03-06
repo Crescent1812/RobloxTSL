@@ -3,4 +3,17 @@ name = "cli"
 version = "0.1.0"
 edition = "2024"
 
+# This ensures Cargo builds both a library and a binary
+[lib]
+name = "cli_core"
+path = "src/lib.rs"
+crate-type = ["rlib", "staticlib"]
+
+[[bin]]
+name = "cli"
+path = "src/main.rs"
+
 [dependencies]
+toml = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_derive = "1.0"
