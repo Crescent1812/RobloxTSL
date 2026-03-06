@@ -1,8 +1,14 @@
-site_name: "Roblox TSL Documentation"
-site_description: "High‑performance MkDocs configuration"
-site_url: "https://Crescent1822.github.io/RobloxTSL"
-repo_name: Crescent1822/RobloxTSL
-repo_url: https://github.com/Crescent1822/RobloxTSL
+# ------------------------------------------------------------
+# MkDocs – Full Configuration (Material + Plugins + Custom)
+# ------------------------------------------------------------
+
+site_name: "My Project Docs"
+site_description: "Comprehensive documentation for My Project"
+site_url: "https://Crescent1822.github.io/RobloxTSL/"
+
+repo_name: "Crescent1822/RobloxTSL"
+repo_url: "https://github.com/Crescent1822/RobloxTSL"
+edit_uri: "edit/main/docs/"
 
 theme:
   name: material
@@ -15,6 +21,7 @@ theme:
     - content.code.copy
     - content.tabs.link
     - toc.integrate
+    - announce.dismiss
   palette:
     - scheme: default
       primary: indigo
@@ -28,57 +35,62 @@ theme:
   font:
     text: Inter
     code: Fira Code
-  logo: assets/logo.svg
+  logo: assets/logo.png
   favicon: assets/favicon.png
+  icon:
+    repo: fontawesome/brands/github
 
 nav:
   - Home: index.md
   - Guides:
-      - "Getting Started": guides/start.md
-      - "Advanced Topics":
-          - "Performance Tuning": guides/performance.md
-          - "Custom Components": guides/components.md
+      - Overview: guides/overview.md
+      - Installation: guides/install.md
+      - Usage: guides/usage.md
   - API Reference:
-      - "v1": api/v1.md
-      - "v2": api/v2.md
+      - Python: api/python.md
+  - Changelog: changelog.md
   - About: about.md
 
 markdown_extensions:
   - admonition
+  - toc:
+      permalink: true
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.tabbed:
       alternate_style: true
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_png
-  - toc:
-      permalink: true
+  - pymdownx.emoji
+  - attr_list
 
 plugins:
   - search
-  - minify:
-      minify_html: true
-  - macros
   - awesome-pages
+  - macros
   - git-revision-date-localized:
       type: datetime
       fallback_to_build_date: true
+      timezone: UTC
   - mkdocstrings:
       handlers:
         python:
           options:
             show_source: true
             docstring_style: google
+            separate_signature: true
   - redirects:
       redirect_maps:
         old-page.md: new-page.md
+        docs/old-guide.md: guides/overview.md
+  - minify:
+      minify_html: true
 
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourname
+      link: "https://github.com/<your-username>"
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/yourname
+      link: "https://twitter.com/<your-handle>"
+  copyright: "© <year> <your-name>"
 
 extra_css:
   - assets/css/custom.css
@@ -87,5 +99,6 @@ extra_javascript:
   - assets/js/custom.js
 
 watch:
-  - overrides/
   - macros/
+  - overrides/
+  - assets/

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block footer %}
+  <div class="custom-footer">
+    <p>© {{ config.extra.copyright }}</p>
+    <p>Built with ❤️ using MkDocs Material</p>
+  </div>
+
+  <style>
+    .custom-footer {
+        text-align: center;
+        padding: 20px;
+        opacity: 0.8;
+        font-size: 0.85rem;
+    }
+  </style>
+{% endblock %}

@@ -2,46 +2,65 @@
    Custom CSS for MkDocs Material
    --------------------------------------------------------- */
 
-/* Make code blocks slightly rounded */
+/* Smooth rounded corners for code blocks */
 .md-typeset pre code {
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
-/* Improve table readability */
+/* Improve inline code appearance */
+.md-typeset code {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+/* Add soft shadow + rounding to images */
+.md-typeset img {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Better table styling */
 .md-typeset table {
     border-radius: 6px;
     overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
 }
 
-/* Add subtle shadow to images */
-.md-typeset img {
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-/* Style for custom callouts (if you want them) */
+/* Custom callout block */
 .callout {
     padding: 1rem;
     border-left: 4px solid var(--md-primary-fg-color);
     background: rgba(0,0,0,0.03);
     border-radius: 4px;
-    margin: 1em 0;
+    margin: 1.2em 0;
 }
 
-/* Make the top nav slightly taller */
+/* Slightly taller header for breathing room */
 .md-header {
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
-/* Slightly larger footer text */
+/* Footer text readability */
 .md-footer-meta {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
-/* Highlight inline code more clearly */
-.md-typeset code {
-    background: rgba(0,0,0,0.06);
-    padding: 0.15em 0.35em;
-    border-radius: 4px;
+/* Highlight blockquotes */
+.md-typeset blockquote {
+    border-left: 4px solid var(--md-primary-fg-color);
+    padding-left: 1rem;
+    color: rgba(0,0,0,0.7);
+}
+
+/* Add spacing between sections */
+.md-typeset h2, .md-typeset h3 {
+    margin-top: 1.6em;
+}
+
+/* Optional: subtle hover effect on links */
+.md-typeset a:hover {
+    text-decoration: underline;
 }
