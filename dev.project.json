@@ -7,6 +7,18 @@
         "RobloxTSL": {
             "$path": "src"
         }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "TestClient": {
+          "$path": "test/client"
+        },
+        "TestServer": {
+          "$path": "test/server"
+        }
+      }
     }
   }
 }
