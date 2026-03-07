@@ -1,5 +1,11 @@
 local Wrap = {}
-Wrap.__index = Wrap
+Wrap.__index = {
+    function(__index): ()
+        print(__index)
+    end
+}
+
+Wrap.__index[1]("Wrap Initalized __Index")
 
 type WrapTSL<W> = {
 	WrapComponent: W,
@@ -7,6 +13,11 @@ type WrapTSL<W> = {
 
 type WrapTSLBinding<B> = {
 	Bindings: B,
+}
+
+type WrapKitStore<K, L> = {
+	Kit1: K,
+	Kit2: L,
 }
 
 function Wrap.new<W, E>(WrapComponent: WrapTSL<W>): WrapTSL<W>
@@ -30,6 +41,10 @@ function Wrap.BindComponent<B>(Bindings: B): WrapTSLBinding<B>
 		WrapComponent = self.WrapComponent,
 		Bindings = Bindings,
 	}
+end
+
+function Wrap.WrapKit<K, L>(Kit1: K, Kit2: L): WrapKitStore<K, L>
+	return { Kit1 = Kit1, Kit2 = Kit2 }
 end
 
 --[[

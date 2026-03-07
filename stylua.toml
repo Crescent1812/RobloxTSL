@@ -1,0 +1,29 @@
+# === Stylua Configuration for Roblox/Luau ===
+
+# Use tabs (Roblox Studio default) or switch to "Spaces" if you prefer
+indent_type = "Tabs"
+indent_width = 4
+
+# Prefer double quotes — matches most Roblox style guides
+quote_style = "Double"
+
+# Keep call parentheses tight and consistent
+call_parentheses = "Always"
+
+# Collapse simple tables onto one line when possible
+collapse_simple_statement = "Always"
+
+# Force consistent line endings
+line_endings = "Unix"
+
+# Limit line length for readability
+column_width = 100
+
+# Keep code stable across runs
+sort_requires = true
+
+# Roblox/Luau compatibility mode
+lua_version = "Luau"
+
+# Format only .lua and .luau files
+include = "**/*.{lua,luau}"
